@@ -1,0 +1,18 @@
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        stack = []
+        temp = head
+        while temp != None:
+            stack.append(temp.val)
+            temp = temp.next
+        temp = head
+        while temp != None:
+            if temp.val != stack[-1]:
+                return False
+            else:
+                stack.pop()
+                temp = temp.next
+        if len(stack) == 0:
+            return True
+
+        
